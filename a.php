@@ -23,14 +23,14 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 require_once('vendor/autoload.php');
 
-// start Chrome with 5 seconds timeout
-/*
-$host = 'http://localhost:4444/wd/hub'; // this is the default
-$capabilities = DesiredCapabilities::firefox();
-$driver = RemoteWebDriver::create($host, $capabilities, 5000);
-*/
 
-function t(){
+
+function fd_login(){
+    // start Chrome with 5 seconds timeout
+    
+    $host = 'http://localhost:4444/wd/hub'; // this is the default
+    $capabilities = DesiredCapabilities::firefox();
+    $driver = RemoteWebDriver::create($host, $capabilities, 5000);
 // navigate to  
 $driver->get('http://demo-fixes.fusiondirectory.org/fusiondirectory/');
 
@@ -52,3 +52,5 @@ $driver->findElement(
 // close the browser
 $driver->quit();
 }
+
+fd_login();

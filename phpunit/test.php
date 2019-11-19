@@ -8,7 +8,7 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 
 require_once("./a.php");
-    class GitHubTest extends TestCase {
+    class Login extends TestCase {
 
         /**
          * @var \RemoteWebDriver
@@ -23,7 +23,7 @@ require_once("./a.php");
     
         protected $url = 'http://demo-fixes.fusiondirectory.org/fusiondirectory/main.php?global_check=1';
     
-        public function t(){
+        public function fd_login(){
             // navigate to  
             $this->webDriver->get('http://demo-fixes.fusiondirectory.org/fusiondirectory/');
             
@@ -38,21 +38,24 @@ require_once("./a.php");
             
             $this->webDriver->findElement(
                 WebDriverBy::name('login')
-            )->click();
-            
-            
-            
-            // close the browser
-            $this->webDriver->quit();
-            }
+            )->click();            
+        }
 
-        public function testGitHubHome()
+         public function testIfLoginIsSuccessfull()
         {
-            $this->t();
+            $this->fd_login();
             //$this->webDriver->get($this->url);
             // checking that page title contains word 'GitHub'
-            //$this->assertContains('GitHub', $this->webDriver->getTitle());
-            //$this->webDriver->quit();
+
+            $this->assertStringContainsString('FusionDirectory - Welcome System Administrator!', $this->webDriver->getTitle());
+
+
+               // $value = $this->webDriver->get($this->url);
+            // $testArray = ['FusionDirectory - Bienvenue System Administrator !'];
+            //  $this->assertContains($value, $testArray, " test");
+            //  $this->webDriver->quit();
+         
+             $this->webDriver->quit();
         }    
     
     }
