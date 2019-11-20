@@ -14,7 +14,7 @@ require_once("./a.php");
          * @var \RemoteWebDriver
          */
         protected $webDriver;
-    
+        
         public function setUp() : void
         {
             $capabilities = DesiredCapabilities::firefox();
@@ -38,16 +38,25 @@ require_once("./a.php");
             
             $this->webDriver->findElement(
                 WebDriverBy::name('login')
-            )->click();            
-        }
-
+            )->click();    
+            
+        
+ 
+         }
+         
+         public function getLoginNameValue() {
+            $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
+            $headerText = $element->getText();
+         }
+      
          public function testIfLoginIsSuccessfull()
         {
             $this->fd_login();
             //$this->webDriver->get($this->url);
             // checking that page title contains word 'GitHub'
-
-            $this->assertStringContainsString('FusionDirectory - Welcome System Administrator!', $this->webDriver->getTitle());
+            $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
+            $headerText = $element->getText();          
+            $this->assertStringContainsString('fd-admin',  $headerText );
 
 
                // $value = $this->webDriver->get($this->url);
@@ -57,7 +66,8 @@ require_once("./a.php");
          
              $this->webDriver->quit();
         }    
-    
+  
     }
+   // element.getAtribute("value");
  
- 
+ //
