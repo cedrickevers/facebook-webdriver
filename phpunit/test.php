@@ -7,6 +7,7 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 require_once("./a.php");
+
     class Login extends TestCase {
         /**
          * @var \RemoteWebDriver
@@ -21,6 +22,7 @@ require_once("./a.php");
     
         protected $url = 'http://demo-fixes.fusiondirectory.org/fusiondirectory/main.php?global_check=1';
     
+//Function that simulate login
         public function fd_login(){
             // navigate to  
             $this->webDriver->get('http://demo-fixes.fusiondirectory.org/fusiondirectory/');
@@ -39,13 +41,14 @@ require_once("./a.php");
           
         }
          
-   
+   //Function that test if the login redirect to the correct page
+
         public function testIfLoginIsSuccessfull() {
             $this->fd_login();
 
             $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
             $headerText = $element->getText();
-
+// is the welcome text returning  username ?
             $this->assertStringContainsString('fd-admin', $headerText );
                 
             $this->webDriver->quit();
