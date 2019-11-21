@@ -36,23 +36,18 @@ require_once("./a.php");
             $this->webDriver->findElement(
                 WebDriverBy::name('login')
             )->click();    
-            
-        
- 
-         }
+          
+        }
          
-         public function getLoginNameValue() {
+   
+        public function testIfLoginIsSuccessfull() {
+            $this->fd_login();
+
             $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
             $headerText = $element->getText();
-            return $headerText;      
-           }
-      
-         public function testIfLoginIsSuccessfull()
-        {
-            $this->fd_login();
-            $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
-            $this->assertStringContainsString('fd-admin',   $this->getLoginNameValue());
-               
+
+            $this->assertStringContainsString('fd-admin', $headerText );
+                
             $this->webDriver->quit();
         }    
   
