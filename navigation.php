@@ -13,7 +13,10 @@ function testNavigate(){
 
     // navigate to  
     $driver->get('https://www.google.fr');
-        $driver->navigate()->to("https://gitlab.fusiondirectory.org/demonstration/demo-fixes");
+    $driver->navigate()->to("https://gitlab.fusiondirectory.org/demonstration/demo-fixes");
+    $driver->navigate()->back();
+    $driver->navigate()->forward();
+    $driver->navigate()->refresh();
 }
  
 
