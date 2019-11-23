@@ -23,6 +23,7 @@ function navigation() {
     $driver->findElement(WebDriverBy::id("username"))->sendKeys("test");
     $driver->wait();
     $driver->navigate()->refresh();
+    $driver->quit();
 
 
 }
