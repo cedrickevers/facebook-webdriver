@@ -26,10 +26,21 @@ function googleSampleTest(){
     $driver = RemoteWebDriver::create($host, $capabilities, 5000);
 // navigate to  
 $driver->get('http://google.com');
+<<<<<<< HEAD
+$element = $driver->findElement(WebDriverBy::name("ei"));
+=======
 $element = $driver->findElement(WebDriverBy::name("q"));
+>>>>>>> 622027feb1f776e018cabe38a47332026f9307ba
 if($element) {
     $element->sendKeys("TestingBot");
     $element->submit();
   }
+<<<<<<< HEAD
+  print $web_driver->getTitle();
+  $web_driver->quit();
 }
 googleSampleTest();
+=======
+}
+googleSampleTest();
+>>>>>>> 622027feb1f776e018cabe38a47332026f9307ba
