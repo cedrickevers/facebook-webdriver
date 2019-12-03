@@ -12,45 +12,26 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 // An example of using php-webdriver.
 // Do not forget to run composer install before and also have Selenium server started and listening on port 4444.
-
 namespace Facebook\WebDriver;
-
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-
 require_once('vendor/autoload.php');
-
-
-
-function fd_login(){
+function googleSampleTest(){
     // start Chrome with 5 seconds timeout
     
     $host = 'http://localhost:4444/wd/hub'; // this is the default
-    $capabilities = DesiredCapabilities::chrome();
+    $capabilities = DesiredCapabilities::firefox();
     $driver = RemoteWebDriver::create($host, $capabilities, 5000);
 // navigate to  
-$driver->get('http://demo-fixes.fusiondirectory.org/fusiondirectory/');
-
-$driver->findElement(
-    WebDriverBy::id('username')
-)->sendKeys("fd-admin");
-
-
-$driver->findElement(
-    WebDriverBy::id('password')
-)->sendKeys("tester");
-
-$driver->findElement(
-    WebDriverBy::name('login')
-)->click();
-
-
-
-// close the browser
-$driver->quit();
+$driver->get('http://google.com');
+$element = $driver->findElement(WebDriverBy::name("ei"));
+if($element) {
+    $element->sendKeys("TestingBot");
+    $element->submit();
+  }
+  print $web_driver->getTitle();
+  $web_driver->quit();
 }
-
-//fd_login();
+googleSampleTest();

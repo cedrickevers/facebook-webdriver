@@ -1,0 +1,14 @@
+dn: ou=groups,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: groups
+
+# oGroup test
+dn: cn=ogrouptest,ou=groups,<LDAP_BASE>
+cn:	ogrouptest
+description: ogrouptest
+gosaGroupObjects: [U]
+member:	uid=fd-admin,ou=people,<LDAP_BASE>
+member:	uid=clogin,ou=people,<LDAP_BASE>
+objectClass: groupOfNames
+objectClass: gosaGroupOfNames
+

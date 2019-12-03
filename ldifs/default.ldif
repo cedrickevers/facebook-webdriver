@@ -1,0 +1,83 @@
+dn: ou=fusiondirectory,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: fusiondirectory
+
+dn: cn=config,ou=fusiondirectory,<LDAP_BASE>
+fdPasswordDefaultHash: ssha
+fdUserRDN: ou=people
+fdGroupRDN: ou=groups
+fdAclRoleRDN: ou=aclroles
+fdGidNumberBase: 1100
+fdUidNumberBase: 1100
+fdAccountPrimaryAttribute: uid
+fdLoginAttribute: uid
+fdTimezone: Europe/Brussels
+fdStrictNamingRules: TRUE
+fdHandleExpiredAccounts: FALSE
+fdEnableSnapshots: TRUE
+fdSnapshotBase: ou=snapshots,<LDAP_BASE>
+fdLanguage: en_US
+fdTheme: breezy
+fdStoreFilterSettings: TRUE
+fdModificationDetectionAttribute: entryCSN
+fdListSummary: TRUE
+fdLdapStats: FALSE
+fdWarnSSL: TRUE
+fdForceSSL: FALSE
+fdSchemaCheck: TRUE
+fdLogging: TRUE
+fdDisplayErrors: TRUE
+fdSessionLifeTime: 1800
+cn: config
+fusionConfigMd5: 761886590b77a1f11cbf3b543af36477
+fdForcePasswordDefaultHash: FALSE
+fdLdapSizeLimit: 200
+fdDisplayHookOutput: FALSE
+fdShells: /bin/ash
+fdShells: /bin/bash
+fdShells: /bin/csh
+fdShells: /bin/sh
+fdShells: /bin/ksh
+fdShells: /bin/tcsh
+fdShells: /bin/dash
+fdShells: /bin/zsh
+fdMinId: 100
+fdIdAllocationMethod: traditional
+objectClass: fusionDirectoryConf
+objectClass: fusionDirectoryPluginsConf
+fdOGroupRDN: ou=groups
+fdCnPattern: %givenName% %sn%
+
+dn: ou=people,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=fd-admin,ou=people,<LDAP_BASE>
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: System
+sn: Administrator
+cn: System Administrator-fd-admin
+uid: fd-admin
+userPassword:: e1NTSEF9cXdUcStXRmNSN3JEbG1JYTM3T0hDMmNoNmJaMFBVY0I=
+
+dn: ou=aclroles,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: aclroles
+
+dn: cn=admin,ou=aclroles,<LDAP_BASE>
+cn: admin
+objectClass: top
+objectClass: gosaRole
+gosaAclTemplate: 0:all;cmdrw
+
+dn: ou=locks,ou=fusiondirectory,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: locks
+
+dn: ou=tokens,ou=fusiondirectory,<LDAP_BASE>
+objectClass: organizationalUnit
+ou: tokens
+
