@@ -1,3 +1,4 @@
+ 
 <?php
  
  require_once('./vendor/autoload.php');
@@ -7,7 +8,6 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 require_once("./a.php");
-
     class Login extends TestCase {
         /**
          * @var \RemoteWebDriver
@@ -16,7 +16,7 @@ require_once("./a.php");
         
         public function setUp() : void
         {
-            $capabilities = DesiredCapabilities::firefox();
+            $capabilities = DesiredCapabilities::chrome();
             $this->webDriver = RemoteWebDriver::create('http://localhost:4444/wd/hub', $capabilities);
         }
     
@@ -42,10 +42,8 @@ require_once("./a.php");
         }
          
    //Function that test if the login redirect to the correct page
-
         public function testIfLoginIsSuccessfull() {
             $this->fd_login();
-
             $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
             $headerText = $element->getText();
 // is the welcome text returning  username ?
@@ -53,6 +51,4 @@ require_once("./a.php");
                 
             $this->webDriver->quit();
         }    
-  
-    }
- 
+    } 
