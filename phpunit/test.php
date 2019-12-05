@@ -8,10 +8,6 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 require_once("./a.php");
-<<<<<<< HEAD
-=======
-
->>>>>>> 622027feb1f776e018cabe38a47332026f9307ba
     class Login extends TestCase {
         /**
          * @var \RemoteWebDriver
@@ -46,15 +42,8 @@ require_once("./a.php");
         }
          
    //Function that test if the login redirect to the correct page
-<<<<<<< HEAD
         public function testIfLoginIsSuccessfull() {
             $this->fd_login();
-=======
-
-        public function testIfLoginIsSuccessfull() {
-            $this->fd_login();
-
->>>>>>> 622027feb1f776e018cabe38a47332026f9307ba
             $element = $this->webDriver->findElement(WebDriverBy::tagName('b'));
             $headerText = $element->getText();
 // is the welcome text returning  username ?
@@ -62,10 +51,4 @@ require_once("./a.php");
                 
             $this->webDriver->quit();
         }    
-  
-<<<<<<< HEAD
     }
-=======
-    }
- 
->>>>>>> 622027feb1f776e018cabe38a47332026f9307ba

@@ -45,10 +45,6 @@ deleteUserByXPath($driver);
      
 
 
-    
-
-
-
 
  
 

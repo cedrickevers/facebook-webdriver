@@ -1,13 +1,14 @@
 <?php
 
-namespace Facebook\WebDriver;
+#namespace Facebook\WebDriver;
+use PHPUnit\Framework\TestCase;
 
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 require_once('vendor/autoload.php');
 
-class FusionDirectoryTestCase {
+class FusionDirectoryTestCase extends TestCase {
 
     static protected $ldap_base           = 'dc=nodomain';
     static protected $ldap_admin          = 'cn=admin,dc=nodomain';
@@ -144,7 +145,7 @@ class FusionDirectoryTestCase {
 
     protected function login($username, $password)
     {
-       $this->driver->get('/index.php');
+       $this->driver->get('http://localhost/fusiondirectory/index.php');
   
       /* Fill login and password */
       $this->fillFields(
@@ -174,7 +175,7 @@ class FusionDirectoryTestCase {
     }
   
   
-    static public function run(){
+    protected function ldap(){
         self::emptyLdap();
         self::insertLDIF("ldifs/default.ldif");
         self::resetGosaAclEntry();
@@ -182,4 +183,4 @@ class FusionDirectoryTestCase {
 
 } 
 
-FusionDirectoryTestCase::run();
+//FusionDirectoryTestCase::ldap();
