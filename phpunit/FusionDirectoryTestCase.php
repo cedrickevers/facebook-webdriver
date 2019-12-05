@@ -176,40 +176,6 @@ class FusionDirectoryTestCase  extends  TestCase {
       $this->driver->findElement(WebDriverBy::name('login'))->click();
     }
   
-
-    protected function login($username, $password)
-  {
-    $this->wait(); // Set implicit wait to 1s
-    $this->url('/index.php');
-
-    /* Fill login and password */
-    $this->fillFields(
-      array(
-        'username' => $username,
-        'password' => $password
-      )
-    );
-
-    /* Insist because it sometimes fail the first time */
-    $this->fillFields(
-      array(
-        'username' => $username,
-        'password' => $password
-      )
-    );
-
-    /* Check that filling worked */
-    $this->verifyIdFields(
-      array(
-        'username' => $username,
-        'password' => $password
-      )
-    );
-
-    $this->byName('login')->click();
-  }
-
-  
     // static public function run(){
     //     self::emptyLdap();
     //     self::insertLDIF("ldifs/default.ldif");
